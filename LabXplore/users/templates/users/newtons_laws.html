@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newton's Laws</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Link to the existing CSS file -->
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img
+        alt="LabXplore Logo"
+        class="logo-icon"
+        src="{% static 'images/value-unscreen.gif' %}"
+      />
+      <div class="logo-text">
+        <a class="logo-link" href="{% url 'home' %}">
+          <h1>
+            LabXplore
+            <p>Discover Physics Through Virtual Experiments</p>
+          </h1>
+        </a>
+      </div>
+    </div>
+    <button class="start-button" onclick="window.location.href='{% url 'newtons_laws' %}'">Belajar</button>
+    <button class="start-button" onclick="window.location.href='{% url 'newton_lab' %}'">Simulasi</button>
+    <button class="start-button" onclick="window.location.href='{% url 'newton_quiz' %}'">Latihan</button> 
+    <button class="start-button" onclick="window.location.href='{% url 'profile' %}'">Profile</button>
+    <button class="start-button" onclick="window.location.href='{% url 'logout' %}'">Logout</button>      
+    </nav>
+  </header>
+    
+
+    <main>
+        <section id="newtonsLaws" class="laws-section">
+            <div id="hukumPertama" class="law-item law-left">
+                <div class="law-text">
+                    <h3>Hukum Pertama Newton (Hukum Kelembaman)</h3>
+                    <p class="teori">"Setiap benda akan tetap dalam keadaan diam atau bergerak lurus beraturan kecuali ada gaya eksternal yang bekerja padanya."</p>
+                    <p> Artinya jika tidak ada gaya luar yang bekerja pada suatu benda, maka benda tersebut akan tetap dalam keadaan diam (jika awalnya diam) atau akan terus bergerak dengan kecepatan tetap dalam garis lurus.</p>
+                    <p>Rumus: ΣF = 0</p>
+                </div>
+                <img src="{% static 'images/Studying.png' %}" alt="Hukum Pertama Newton" class="law-image">
+            </div>
+            <div id="hukumKedua" class="law-item law-right">
+                <img src="{% static 'images/Science Research.png' %}" alt="Hukum Kedua Newton" class="law-image">
+                <div class="law-text">
+                    <h3>Hukum Kedua Newton (Hukum Percepatan)</h3>
+                    <p class="teori">"Percepatan sebuah benda sebanding dengan gaya yang bekerja pada benda tersebut dan berbanding terbalik dengan massanya."</p>
+                    <p>Artinya, semakin besar gaya yang diberikan pada suatu benda, semakin besar percepatannya. Namun, jika massa benda semakin besar, percepatannya akan lebih kecil untuk gaya yang sama.</p>
+                    <p> Rumus:
+                        ΣF = m . a</p>
+                </div>
+            </div>
+            <div id="hukumKetiga" class="law-item law-left">
+                <div class="law-text">
+                    <h3>Hukum Ketiga Newton (Aksi-Reaksi)</h3>
+                    <p class="teori">"Setiap aksi memiliki reaksi yang sama besar namun berlawanan arah."</p>
+                    <p>Artinya, jika suatu benda memberikan gaya pada benda lain, benda kedua tersebut akan memberikan gaya yang sama besar tetapi dengan arah yang berlawanan pada benda pertama.</p>
+                    <p>Rumus: ΣF Aksi = - ΣF Reaksi</p>
+                </div>
+                <img src="{% static 'images/Online Course.png' %}" alt="Hukum Ketiga Newton" class="law-image">
+            </div>
+            <section id="gayaGesek" class="laws-section">
+                <h2>Gaya Gesek</h2>
+                <p>Gaya gesek adalah gaya yang muncul ketika dua permukaan benda saling bersentuhan dan bergerak relatif satu sama lain atau ada kecenderungan untuk bergerak. Gaya gesek selalu bekerja melawan arah gerakan benda, dan fungsinya adalah untuk menghambat atau menghentikan gerakan.</p>
+                
+                <h3>Gaya Gesek Statik</h3>
+                <div class="law-text teori">
+                    <p><strong>Definisi:</strong> gesek yang bekerja pada benda yang belum bergerak.</p>
+                    <p><strong>Rumus:</strong></p>
+                    <p>f<sub>s</sub> = μ<sub>s</sub> · N</p>
+                    <ul>
+                        <li>f<sub>s</sub> = Gaya gesek statik (Newton)</li>
+                        <li>μ<sub>s</sub> = Koefisien gesek statik (nilai tanpa satuan)</li>
+                        <li>N = Gaya normal (Newton)</li>
+                    </ul>
+                </div>
+
+                <h3>Gaya Gesek Kinetik</h3>
+                <div class="law-text teori">
+                    <p><strong>Definisi:</strong> 
+                        <p>gesek yang bekerja pada benda yang sudah bergerak.</p>
+                    </p>
+                    <p><strong>Rumus:</strong></p>
+                    <p>f<sub>k</sub> = μ<sub>k</sub> · N</p>
+                    <ul>
+                        <li>f<sub>k</sub> = Gaya gesek kinetik (Newton)</li>
+                        <li>μ<sub>k</sub> = Koefisien gesek kinetik (nilai tanpa satuan, biasanya lebih kecil dari μ<sub>s</sub>)</li>
+                        <li>N = Gaya normal (Newton)</li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="{% static 'js/script.js' %}"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>

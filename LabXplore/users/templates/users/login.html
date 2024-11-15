@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LabXplore - Masuk Akun</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="login-header">
+      <div class="logo">
+        <img
+          alt="LabXplore Logo"
+          class="logo-icon"
+          src="{% static 'images/value-unscreen.gif' %}"
+        />
+        <div class="logo-text">
+          <a class="logo-link" href="{% url 'index' %}">
+            <h1>LabXplore</h1>
+            <p>Discover Physics Through Virtual Experiments</p>
+          </a>
+        </div>
+      </div>
+      <nav class="button-group">
+        <a class="login-back-button" href="{% url 'index' %}">Kembali</a>
+      </nav>
+    </header>
+
+    <!-- Login Form Section -->
+    <section class="login-section">
+      <div class="login-box">
+        <h2>Masuk Akun</h2>
+
+        {% if messages %}
+        <div class="alert-box">
+          {% for message in messages %}
+          <p class="alert">{{ message }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+
+          <button type="submit" class="login-button">Masuk</button>
+        </form>
+
+        <p>
+          Belum punya akun?
+          <a href="{% url 'register' %}" class="login-link">Buat Disini</a>
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

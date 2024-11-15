@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Kuis Hukum Newton - Halaman Baru</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          alt="LabXplore Logo"
+          class="logo-icon"
+          src="{% static 'images/value-unscreen.gif' %}"
+        />
+        <div class="logo-text">
+          <a class="logo-link" href="{% url 'home' %}">
+            <h1>
+              LabXplore
+              <p>Discover Physics Through Virtual Experiments</p>
+            </h1>
+          </a>
+        </div>
+      </div>
+      <button class="start-button" onclick="window.location.href='{% url 'newtons_laws' %}'">Belajar</button>
+      <button class="start-button" onclick="window.location.href='{% url 'newton_lab' %}'">Simulasi</button>
+      <button class="start-button" onclick="window.location.href='{% url 'newton_quiz' %}'">Latihan</button> 
+      <button class="start-button" onclick="window.location.href='{% url 'profile' %}'">Profile</button>
+      <button class="start-button" onclick="window.location.href='{% url 'logout' %}'">Logout</button>      
+      </nav>
+    </header>
+    <div id="newtonQuizWrapper">
+      <div class="quiz-container">
+        <h1>Latihan Hukum Newton</h1>
+        <form id="quizForm">
+          <div class="question">
+            <h3>
+              1. Sebuah balok dengan massa 10 kg diletakkan di atas permukaan
+              datar yang kasar. Koefisien gesek statis antara balok dan
+              permukaan adalah 0,4, sedangkan koefisien gesek kinetis adalah
+              0,3. Jika gaya horizontal sebesar 35 N diberikan pada balok,
+              tentukan:
+            </h3>
+            <div class="options">
+              <label>
+                a) Apakah balok akan bergerak?
+                <select name="q1a">
+                  <option value="">-- Pilih --</option>
+                  <option value="Ya">Ya</option>
+                  <option value="Tidak">Tidak</option>
+                </select>
+              </label>
+              <label>
+                b) Jika balok bergerak, hitung percepatan balok tersebut.
+                <input name="q1b" type="text" />
+              </label>
+            </div>
+          </div>
+          <div class="question">
+            <h3>
+              2. Sebuah kotak dengan massa 5 kg berada di atas lantai dengan
+              koefisien gesek kinetis 0,25. Sebuah gaya mendatar sebesar 20 N
+              diberikan untuk mendorong kotak tersebut. Hitunglah:
+            </h3>
+            <div class="options">
+              <label>
+                a) Gaya gesek kinetis yang bekerja pada kotak.
+                <input name="q2a" type="text" />
+              </label>
+              <label>
+                b) Percepatan kotak setelah gaya tersebut diberikan.
+                <input name="q2b" type="text" />
+              </label>
+            </div>
+          </div>
+          <div class="question">
+            <h3>
+              3. Sebuah kotak dengan massa 12 kg diletakkan di atas permukaan
+              datar. Koefisien gesek statis antara kotak dan lantai adalah 0,5,
+              dan koefisien gesek kinetisnya adalah 0,35. Jika gaya mendatar
+              sebesar 45 N diberikan pada kotak, tentukan:
+            </h3>
+            <div class="options">
+              <label>
+                a) Apakah kotak akan bergerak?
+                <select name="q3a">
+                  <option value="">-- Pilih --</option>
+                  <option value="Ya">Ya</option>
+                  <option value="Tidak">Tidak</option>
+                </select>
+              </label>
+              <label>
+                b) Jika bergerak, berapa percepatannya?
+                <input name="q3b" type="text" />
+              </label>
+            </div>
+          </div>
+          <button onclick="checkAnswers()" type="button">Cek Jawaban</button>
+        </form>
+        <div class="score-display" id="scoreDisplay"></div>
+      </div>
+    </div>
+  </body>
+  <script src="{% static 'js/script.js' %}"></script>
+</html>

@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LabXplore - Pembuatan Akun</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="register-header">
+      <div class="logo">
+        <img
+          alt="LabXplore Logo"
+          class="logo-icon"
+          src="{% static 'images/value-unscreen.gif' %}"
+        />
+        <div class="logo-text">
+          <a class="logo-link" href="{% url 'index' %}">
+            <h1>LabXplore</h1>
+            <p>Discover Physics Through Virtual Experiments</p>
+          </a>
+        </div>
+      </div>
+      <nav class="button-group">
+        <a class="register-back-button" href="{% url 'login' %}">Kembali</a>
+      </nav>
+    </header>
+
+    <!-- Register Form Section -->
+    <section class="register-section">
+      <div class="register-box">
+        {% if form.errors %}
+        <div class="alert-box">
+          {% for field in form %} {% for error in field.errors %}
+          <p class="alert">{{ error }}</p>
+          {% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+          <p class="alert">{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <h2>Pembuatan Akun</h2>
+        <form method="post" action="{% url 'register' %}">
+          {% csrf_token %}
+          <div class="requirement-text">
+            <label for="id_username">Username:</label>
+            {{ form.username }}
+            <p>
+              Maksimal 150 karakter. Hanya huruf, angka, dan karakter @/./+/-/_.
+            </p>
+          </div>
+
+          <div class="requirement-text">
+            <label for="id_password1">Password:</label>
+            {{ form.password1 }}
+            <p>Password Anda harus memenuhi kriteria berikut:</p>
+            <p>
+              • Password Anda tidak boleh terlalu mirip dengan informasi pribadi
+              Anda.<br />
+              • Password Anda harus berisi setidaknya 8 karakter.<br />
+              • Password Anda tidak boleh berupa password yang umum
+              digunakan.<br />
+              • Password Anda tidak boleh hanya berupa angka.
+            </p>
+          </div>
+
+          <div class="requirement-text">
+            <label for="id_password2">Konfirmasi Password:</label>
+            {{ form.password2 }}
+            <p>
+              Masukkan password yang sama seperti sebelumnya untuk verifikasi.
+            </p>
+          </div>
+
+          <button type="submit" class="register-button">Register</button>
+        </form>
+        <p>
+          Sudah punya akun?
+          <a href="{% url 'login' %}" class="register-link">Login disini</a>
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>LabXplore - Hukum Newton</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          alt="LabXplore Logo"
+          class="logo-icon"
+          src="{% static 'images/value-unscreen.gif' %}"
+        />
+        <div class="logo-text">
+          <a class="logo-link" href="{% url 'home' %}">
+            <h1>
+              LabXplore
+              <p>Discover Physics Through Virtual Experiments</p>
+            </h1>
+          </a>
+        </div>
+      </div>
+      <button class="start-button" onclick="window.location.href='{% url 'newtons_laws' %}'">Belajar</button>
+      <button class="start-button" onclick="window.location.href='{% url 'newton_lab' %}'">Simulasi</button>
+      <button class="start-button" onclick="window.location.href='{% url 'newton_quiz' %}'">Latihan</button> 
+      <button class="start-button" onclick="window.location.href='{% url 'profile' %}'">Profile</button>
+      <button class="start-button" onclick="window.location.href='{% url 'logout' %}'">Logout</button>      
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="introSection">
+        <section class="hero-content">
+          <h2>HUKUM NEWTON</h2>
+          <p>
+            Hukum Newton adalah tiga prinsip dasar yang mengatur gerak benda dan
+            merupakan fondasi dari mekanika klasik. Hukum-hukum ini pertama kali
+            dirumuskan oleh Sir Isaac Newton pada abad ke-17 dan masih digunakan
+            hingga sekarang untuk menjelaskan berbagai fenomena dalam fisika.
+          </p>
+          <button class="learn-more-button" id="learnMoreButton">
+            Mari Mulai
+          </button>
+        </section>
+      </section>
+      <section class="box-container" id="boxSection">
+        <a class="box" href="{% url 'newtons_laws' %}">
+          <img alt="Belajar GIF" class="box-pic" src="{% static 'images/reading-book.png' %}" />
+          <h3>BELAJAR</h3>
+          <p>Memahami bagaimana Hukum Newton Bekerja</p>
+      </a>
+      <a class="box" href="{% url 'newton_lab' %}">
+          <img alt="Simulasi GIF" class="box-pic" src="{% static 'images/experiment.png' %}" />
+          <h3>SIMULASI</h3>
+          <p>Melakukan Eksperimen tentang Hukum Newton</p>
+      </a>
+      <a class="box" href="{% url 'newton_quiz' %}">
+          <img alt="Latihan GIF" class="box-pic" src="{% static 'images/test.png' %}" />
+          <h3>LATIHAN</h3>
+          <p>Mengaplikasikan rumus ke dalam studi kasus</p>
+      </a>      
+      </section>
+    </main>
+    <script src="script.js"></script>
+    <script>
+      // JavaScript to scroll to the bottom of the page
+      document
+        .getElementById("learnMoreButton")
+        .addEventListener("click", function () {
+          window.scrollTo({
+            top: document.body.scrollHeight, // Scroll to the bottom
+            behavior: "smooth", // Smooth scrolling effect
+          });
+        });
+    </script>
+  </body>
+</html>
