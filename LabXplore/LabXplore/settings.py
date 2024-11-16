@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-24&&s7l@mj5e8wwpf@7*ix0ab*o49$p)vuc#3wul1igay(@64e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -87,12 +87,12 @@ LOGIN_URL = 'login'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get("DB_ENGINE", "django.db.backends.sqlite3"),
+        'ENGINE': os.environ.get("DB_ENGINE", ""),
         'NAME': os.environ.get("DB_NAME", os.path.join(BASE_DIR, "postgres")),
-        'USER': os.environ.get("DB_USER", "postgres.rouinwfdrthuatrwhoto"),
-        'PASSWORD': os.environ.get("DB_PASSWORD", "@MickyValentino18"),
-        'HOST': os.environ.get("DB_HOST", "aws-0-ap-southeast-1.pooler.supabase.com"),
-        'PORT': os.environ.get("DB_PORT", "6543"),
+        'USER': os.environ.get("DB_USER", ""),
+        'PASSWORD': os.environ.get("DB_PASSWORD", ""),
+        'HOST': os.environ.get("DB_HOST", ""),
+        'PORT': os.environ.get("DB_PORT", ""),
     }
 }
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
